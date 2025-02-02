@@ -13,7 +13,7 @@ const Navbar = () => {
     {
       title: "All Books",
       link: "/all-books",
-     },
+    },
     {
       title: "Cart",
       link: "/cart",
@@ -45,10 +45,10 @@ const Navbar = () => {
           ))}
         </div>
         <div className="flex gap-4">
-          <button className="px-2 py-1 border border-blue-500 rounded  hover:bg-white hover:text-zinc-800 transition-all duratiion-300">
+          <button className="px-4 py-1 border border-blue-500 rounded  hover:bg-white hover:text-zinc-800 transition-all duratiion-300">
             LogIn
           </button>
-          <button className="px-2 py-1 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300">
+          <button className="px-4 py-1 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300">
             Sign Up
           </button>
         </div>
