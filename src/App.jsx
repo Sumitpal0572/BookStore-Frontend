@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar/navbar";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
+import AllBooks from "./pages/AllBooks";
+import LogIn from "./pages/LogIn";
 
 const App = () => {
   return (
