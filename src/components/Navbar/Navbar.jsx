@@ -26,14 +26,14 @@ const Navbar = () => {
   ];
   return (
     <div className="flex bg-zinc-800 text-white px-8 py-4 items-center justify-between">
-      <div className="flex items-center">
+      <Link to="/" className="flex items-center">
         <img
           className="h-10 me-4"
           src="https://cdn-icons-png.flaticon.com/128/10433/10433049.png"
           alt="logo"
         />
         <h1 className="text-2xl font-semibold">BookHeaven</h1>
-      </div>
+      </Link>
       <div className="nav-links-bookheaven flex items-center gap-4">
         <div className="flex gap-4">
           {links.map((items, i) => (
