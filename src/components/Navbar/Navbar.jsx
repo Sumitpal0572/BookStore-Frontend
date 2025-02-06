@@ -35,7 +35,7 @@ const Navbar = () => {
         <h1 className="text-2xl font-semibold">BookHeaven</h1>
       </Link>
       <div className="nav-links-bookheaven flex items-center gap-4">
-        <div className="flex gap-4">
+        <div className="hidden md:flex gap-4">
           {links.map((items, i) => (
             <Link
               to={items.link}
@@ -46,7 +46,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="flex gap-4">
+        <div className="hidden md:flex gap-4">
           <Link
             to="/LogIn"
             className="px-4 py-1 border border-blue-500 rounded  hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
