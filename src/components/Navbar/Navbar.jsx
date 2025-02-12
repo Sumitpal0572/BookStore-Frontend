@@ -34,7 +34,7 @@ const Navbar = () => {
         />
         <h1 className="text-2xl font-semibold">BookHeaven</h1>
       </Link>
-      <div className="nav-links-bookheaven flex items-center gap-4">
+      <div className="nav-links-bookheaven block md:flex items-center gap-4">
         <div className="hidden md:flex gap-4">
           {links.map((items, i) => (
             <Link
