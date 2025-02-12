@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaGripLines } from "react-icons/fa";
 
 const Navbar = () => {
   const links = [
@@ -60,6 +61,9 @@ const Navbar = () => {
             Sign Up
           </Link>
         </div>
+        <button className="text-white text-2xl">
+          <FaGripLines />
+        </button>
       </div>
     </div>
   );
