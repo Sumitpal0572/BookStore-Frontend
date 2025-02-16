@@ -67,7 +67,7 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      <div className="bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40"></div>
+      <div className="bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-between justify-center"></div>
     </>
   );
 };
