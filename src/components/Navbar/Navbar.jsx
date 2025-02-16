@@ -27,7 +27,7 @@ const Navbar = () => {
   ];
   return (
     <>
-      <nav className="flex bg-zinc-800 text-white px-8 py-4 items-center justify-between">
+      <nav className="z-50 relative flex bg-zinc-800 text-white px-8 py-4 items-center justify-between">
         <Link to="/" className="flex items-center">
           <img
             className="h-10 me-4"
@@ -67,6 +67,7 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
+      <div className="bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40"></div>
     </>
   );
 };
