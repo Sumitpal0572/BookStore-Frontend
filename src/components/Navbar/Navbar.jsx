@@ -67,7 +67,17 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      <div className="bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-between justify-center"></div>
+      <div className="bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-between justify-center">
+        {links.map((items, i) => (
+          <Link
+            to={items.link}
+            className="hover:text-blue-500 transititon-all duration-300"
+            key={i}
+          >
+            {items.title}
+          </Link>
+        ))}
+      </div>
     </>
   );
 };
