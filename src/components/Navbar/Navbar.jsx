@@ -67,16 +67,29 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      <div className="bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-between justify-center">
+      <div className="bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-center justify-center mb-8">
         {links.map((items, i) => (
           <Link
             to={items.link}
-            className="hover:text-blue-500 transititon-all duration-300"
+            className="text-white text-4xl font-semibold hover:text-blue-500 transititon-all duration-300"
             key={i}
           >
             {items.title}
           </Link>
         ))}
+
+        <Link
+          to="/LogIn"
+          className="px-4 py-2 mb-8 text-2xl font-semibold border border-blue-500 rounded  hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
+        >
+          LogIn
+        </Link>
+        <Link
+          to="/SignUp"
+          className="px-4 py-2 mb-8 text-2xl font-semibold bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
+        >
+          Sign Up
+        </Link>
       </div>
     </>
   );
