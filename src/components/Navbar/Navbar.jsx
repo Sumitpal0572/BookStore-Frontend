@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaGripLines } from "react-icons/fa";
+import { useState } from "react";
 
 const Navbar = () => {
   const links = [
@@ -25,6 +26,8 @@ const Navbar = () => {
       link: "/Profile",
     },
   ];
+
+  const [MobileNav, setMobileNav] = useState("hidden");
   return (
     <>
       <nav className="z-50 relative flex bg-zinc-800 text-white px-8 py-4 items-center justify-between">
@@ -67,7 +70,9 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      <div className="bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-center justify-center mb-8">
+      <div
+        className={`${MobileNav}bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-center justify-center `}
+      >
         {links.map((items, i) => (
           <Link
             to={items.link}
@@ -80,13 +85,13 @@ const Navbar = () => {
 
         <Link
           to="/LogIn"
-          className="px-4 py-2 mb-8 text-2xl font-semibold border border-blue-500 rounded  hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
+          className="px-8 py-2 mb-8 text-2xl font-semibold border border-blue-500 rounded text-white hover:bg-white  hover:text-zinc-800 transition-all duratiion-300"
         >
           LogIn
         </Link>
         <Link
           to="/SignUp"
-          className="px-4 py-2 mb-8 text-2xl font-semibold bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
+          className="px-8 py-2 mb-8 text-2xl font-semibold bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
         >
           Sign Up
         </Link>
