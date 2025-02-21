@@ -65,18 +65,25 @@ const Navbar = () => {
               Sign Up
             </Link>
           </div>
-          <button className="text-white text-2xl hover:text-zinc-400">
+          <button
+            className="text-white text-2xl hover:text-zinc-400"
+            onClick={() =>
+              MobileNav === "hidden"
+                ? setMobileNav("block")
+                : setMobileNav("hidden")
+            }
+          >
             <FaGripLines />
           </button>
         </div>
       </nav>
       <div
-        className={`${MobileNav}bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-center justify-center `}
+        className={`${MobileNav} bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-center justify-center `}
       >
         {links.map((items, i) => (
           <Link
             to={items.link}
-            className="text-white text-4xl font-semibold hover:text-blue-500 transititon-all duration-300"
+            className={` ${MobileNav} text-white text-4xl font-semibold hover:text-blue-500 transititon-all duration-300`}
             key={i}
           >
             {items.title}
@@ -85,13 +92,13 @@ const Navbar = () => {
 
         <Link
           to="/LogIn"
-          className="px-8 py-2 mb-8 text-2xl font-semibold border border-blue-500 rounded text-white hover:bg-white  hover:text-zinc-800 transition-all duratiion-300"
+          className={`${MobileNav} px-8 py-2 mb-8 text-2xl font-semibold border border-blue-500 rounded text-white hover:bg-white  hover:text-zinc-800 transition-all duratiion-300`}
         >
           LogIn
         </Link>
         <Link
           to="/SignUp"
-          className="px-8 py-2 mb-8 text-2xl font-semibold bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
+          className={`${MobileNav} px-8 py-2 mb-8 text-2xl font-semibold bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300`}
         >
           Sign Up
         </Link>
