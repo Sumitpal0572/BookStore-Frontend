@@ -85,6 +85,11 @@ const Navbar = () => {
             to={items.link}
             className={` ${MobileNav} text-white text-4xl font-semibold hover:text-blue-500 transititon-all duration-300`}
             key={i}
+            onClick={() =>
+              MobileNav === "hidden"
+                ? setMobileNav("block")
+                : setMobileNav("hidden")
+            }
           >
             {items.title}
           </Link>
