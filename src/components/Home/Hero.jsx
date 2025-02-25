@@ -2,8 +2,8 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="h-screen md:h-[75vh] flex flex-col md:flex-row">
-      <div className="w-full lg:w-3/6 flex flex-col items-center lg:items-start justify-center">
+    <div className=" md:h-[75vh] flex flex-col md:flex-row items-center justify-center">
+      <div className="w-full mb-12 mb:md-0 lg:w-3/6 flex flex-col items-center lg:items-start justify-center">
         <h1 className="text-4xl lg:text-6xl font-semibold text-yellow-100 text-center lg:text-left">
           Discover Your Next Great Read
         </h1>
