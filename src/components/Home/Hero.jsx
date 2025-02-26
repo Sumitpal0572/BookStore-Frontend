@@ -1,5 +1,5 @@
 import React from "react";
-import { Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -13,7 +13,7 @@ const Hero = () => {
           inspiration in our curated collection of books
         </p>
         <div className="mt-8">
-          <Links
+          <Link
             to="/all-books"
             className="text-yellow-100 text-xl
           lg:text-2xl
@@ -26,7 +26,7 @@ const Hero = () => {
           rounded-full"
           >
             Discover Books
-          </Links>
+          </Link>
         </div>
       </div>
       <div className="w:full w-3/6 h-auto lg:h-[100%] flex items-center justify-center">
