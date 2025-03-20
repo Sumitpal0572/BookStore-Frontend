@@ -1,10 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const bookcard = () => {
-    
-  return (
-    <div>bookcard</div>
-  )
-}
+const bookcard = ({ data }) => {
+  return <div>bookcard</div>;
+};
 
-export default bookcard
+export default bookcard;
