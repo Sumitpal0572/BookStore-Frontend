@@ -1,12 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const bookcard = ({ data }) => {
+const BookCard = ({ data }) => {
   console.log(data);
   return (
     <>
-      <Link></Link>
+      <Link>
+        <div className="bg-zinc-800 rounded p-4">
+          <div className="bg-zinc-900">
+            <img src={data.url} alt="/" />
+          </div>
+        </div>
+      </Link>
     </>
   );
 };
 
-export default bookcard;
+export default BookCard;

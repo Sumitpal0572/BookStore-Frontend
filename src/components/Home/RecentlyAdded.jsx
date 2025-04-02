@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { data } from "react-router-dom";
-import bookcard from "../Bookcard/bookcard";
+import BookCard from "../Bookcard/BookCard";
 
 const RecentlyAdded = () => {
   const [Data, setData] = useState();
@@ -21,7 +20,7 @@ const RecentlyAdded = () => {
         {Data &&
           Data.map((items, i) => (
             <div key={i}>
-              <bookcard data={items} />{" "}
+              <BookCard data={items} />{" "}
             </div>
           ))}
       </div>
