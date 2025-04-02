@@ -6,8 +6,8 @@ const BookCard = ({ data }) => {
     <>
       <Link>
         <div className="bg-zinc-800 rounded p-4">
-          <div className="bg-zinc-900">
-            <img src={data.url} alt="/" />
+          <div className="bg-zinc-900 rounded flex items-center justify-center">
+            <img src={data.url} alt="/" className="h-[25vh]" />
           </div>
         </div>
       </Link>
