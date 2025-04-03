@@ -12,7 +12,7 @@ const BookCard = ({ data }) => {
           <h2 className="mt-4 text-xl font-semi-bold">{data.title}</h2>
           <p className="mt-2 text-zinc-400 font-semibold">by {data.author}</p>
           <p className="mt-2 text-zinc-200 font-semibold texy-xl">
-            rupees {data.price}
+          &#8377; {data.price}
           </p>
         </div>
       </Link>
