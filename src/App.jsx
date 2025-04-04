@@ -23,6 +23,7 @@ const App = () => {
           <Route path="/Profile" element={<Profile />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="view-book-details/:id" />
         </Routes>
         <Footer />
       </Router>
