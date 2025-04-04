@@ -9,6 +9,7 @@ import LogIn from "./pages/LogIn";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import AboutUs from "./pages/AboutUs";
+import ViewBookDetail from "./components/ViewBooksDetails/ViewBookDetail";
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
           <Route path="/Profile" element={<Profile />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />
-          <Route path="view-book-details/:id" />
+          <Route path="view-book-details/:id" element={<ViewBookDetail />} />
         </Routes>
         <Footer />
       </Router>
