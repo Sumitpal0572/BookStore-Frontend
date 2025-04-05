@@ -31,7 +31,9 @@ const SignUp = () => {
         alert(response.data.message);
         navigate("/LogIn");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="h-auto bg-zinc-900 px-12 py-8 flex items-center justify-center">
