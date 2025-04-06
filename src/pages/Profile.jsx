@@ -15,7 +15,7 @@ const Profile = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost2000/api/v1/get-user-information",
+        "http://localhost:2000/api/v1/get-user-information",
         { headers }
       );
       setProfile(response.data);
@@ -33,7 +33,7 @@ const Profile = () => {
       {Profile && (
         <>
           <div className="w-full md:w-1/6">
-            <Sidebar />
+            <Sidebar data={Profile} />
           </div>
           <div className="w-full md:w-5/6">
             <Outlet />
