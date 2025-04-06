@@ -30,10 +30,9 @@ const Navbar = () => {
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-if(isLoggedIn=== false)
-{
-  links.splice(2,2)
-}
+  if (isLoggedIn === false) {
+    links.splice(2, 2);
+  }
   const [MobileNav, setMobileNav] = useState("hidden");
   return (
     <>
@@ -49,29 +48,44 @@ if(isLoggedIn=== false)
         <div className="nav-links-bookheaven block md:flex items-center gap-4">
           <div className="hidden md:flex gap-4">
             {links.map((items, i) => (
-              <Link
-                to={items.link}
-                className="hover:text-blue-500 transititon-all duration-300"
-                key={i}
-              >
-                {items.title}
-              </Link>
+              <div className="flex items-center">
+                {items.title === "Profile" ? (
+                  <Link
+                    to={items.link}
+                    className="px-4 py-1 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
+                    key={i}
+                  >
+                    {items.title}
+                  </Link>
+                ) : (
+                  <Link
+                    to={items.link}
+                    className="hover:text-blue-500 transititon-all duration-300"
+                    key={i}
+                  >
+                    {items.title}
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
-          <div className="hidden md:flex gap-4">
-            <Link
-              to="/LogIn"
-              className="px-4 py-1 border border-blue-500 rounded  hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
-            >
-              LogIn
-            </Link>
-            <Link
-              to="/SignUp"
-              className="px-4 py-1 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
-            >
-              Sign Up
-            </Link>
-          </div>
+          {isLoggedIn === false && (
+            <div className="hidden md:flex gap-4">
+              <Link
+                to="/LogIn"
+                className="px-4 py-1 border border-blue-500 rounded  hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
+              >
+                LogIn
+              </Link>
+              <Link
+                to="/SignUp"
+                className="px-4 py-1 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300"
+              >
+                Sign Up
+              </Link>
+            </div>
+          )}
+
           <button
             className="block md:hidden text-white text-2xl hover:text-zinc-400"
             onClick={() =>
@@ -102,12 +116,16 @@ if(isLoggedIn=== false)
           </Link>
         ))}
 
-        <Link
-          to="/LogIn"
-          className={`${MobileNav} px-8 py-2 mb-8 text-2xl font-semibold border border-blue-500 rounded text-white hover:bg-white  hover:text-zinc-800 transition-all duratiion-300`}
-        >
-          LogIn
-        </Link>
+        {isLoggedIn === false && (
+          <>
+            <Link
+              to="/LogIn"
+              className={`${MobileNav} px-8 py-2 mb-8 text-2xl font-semibold border border-blue-500 rounded text-white hover:bg-white  hover:text-zinc-800 transition-all duratiion-300`}
+            >
+              LogIn
+            </Link>
+          </>
+        )}
         <Link
           to="/SignUp"
           className={`${MobileNav} px-8 py-2 mb-8 text-2xl font-semibold bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duratiion-300`}
