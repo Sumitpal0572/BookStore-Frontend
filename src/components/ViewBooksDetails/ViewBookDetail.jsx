@@ -3,8 +3,9 @@ import axios from "axios";
 import Loader from "../Loader/Loader";
 import { useParams } from "react-router-dom";
 import { GrLanguage } from "react-icons/gr";
-import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaShoppingCart, FaEdit } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { MdOutlineDelete } from "react-icons/md";
 
 const ViewBookDetail = () => {
   const { id } = useParams();
@@ -23,6 +24,29 @@ const ViewBookDetail = () => {
     };
     fetch();
   }, []);
+  const headers = {
+    id: localStorage.getItem("id"),
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+    bookid: id,
+  };
+  const handleFavourites = async () => {
+    const response = await axios.put(
+      "http://localhost:2000/api/v1/add-book-to-fav",
+      {},
+      { headers }
+    );
+    alert(response.data.message);
+  };
+
+  const handleCart = async () => {
+    const response = await axios.put(
+      "http://localhost:2000/api/v1/add-to-cart",
+      {},
+      { headers }
+    );
+    alert(response.data.message);
+  };
+
   return (
     <>
       {Data && (
@@ -35,14 +59,33 @@ const ViewBookDetail = () => {
                 className="h-[50vh] md:h-[60vh] lg:h-[70vh] rounded"
               />
               {isloggedIn === true && role === "user" && (
-                <div className="flex  flex-row lg:flex-col items-center justify-between lg:justify-start mt-4 lg:mt-0">
-                  <button className="bg-white rounded lg:rounded-full text-3xl p-2 text-red-500 ">
+                <div className="flex  flex-col md:flex-row lg:flex-col items-center justify-between lg:justify-start mt-4 lg:mt-0">
+                  <button
+                    className="bg-white rounded lg:rounded-full text-3xl p-2 text-red-500 flex  items-center justify-center"
+                    onClick={handleFavourites}
+                  >
                     <FaHeart />{" "}
-                    <span className="ms-4 block lg:hidden">Add to cart</span>
+                    <span className="ms-4 block lg:hidden">Favourties</span>
                   </button>
-                  <button className="bg-white rounded lg:rounded-full text-3xl p-2 mt- lg:mt-8 text-blue-500 flexitems-center justify-center ">
+                  <button
+                    className="text-white rounded mt-8 md:mt-0 lg:rounded-full text-4xl lg:text-3xl p-2  lg:mt-8 bg-blue-500 flexitems-center justify-center "
+                    onClick={handleCart}
+                  >
                     <FaShoppingCart />{" "}
                     <span className="ms-4 block lg:hidden">Add to cart</span>
+                  </button>
+                </div>
+              )}
+              {/* for admin */}
+              {isloggedIn === true && role === "admin" && (
+                <div className="flex  flex-col md:flex-row lg:flex-col items-center justify-between lg:justify-start mt-4 lg:mt-0">
+                  <button className="bg-white rounded lg:rounded-full text-3xl p-2 text-red-500 flex  items-center justify-center  ">
+                    <FaEdit />{" "}
+                    <span className="ms-4 block lg:hidden">Edit</span>
+                  </button>
+                  <button className="text-red-500 rounded mt-8 md:mt-0 lg:rounded-full text-3xl p-2  lg:mt-8 bg:white flexitems-center justify-center ">
+                    <MdOutlineDelete />
+                    <span className="ms-4 block lg:hidden">Delete Book</span>
                   </button>
                 </div>
               )}
