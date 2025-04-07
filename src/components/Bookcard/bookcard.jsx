@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const BookCard = ({ data }) => {
-  console.log(data);
+const BookCard = ({ data, favourite }) => {
   return (
     <>
       <Link to={`/view-book-details/${data._id}`}>
@@ -16,6 +15,7 @@ const BookCard = ({ data }) => {
           <p className="mt-2 text-zinc-200 font-semibold texy-xl">
             &#8377; {data.price}
           </p>
+          <button className="bg-yellow-100">Remove from Favourites </button>
         </div>
       </Link>
     </>

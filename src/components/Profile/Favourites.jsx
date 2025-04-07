@@ -24,7 +24,7 @@ const Favourites = () => {
       {FavouritesBooks &&
         FavouritesBooks.map((items, i) => (
           <div key={i}>
-            <BookCard data={items} />
+            <BookCard data={items} favourite={true} />
           </div>
         ))}
     </div>
