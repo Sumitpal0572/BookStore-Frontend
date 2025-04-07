@@ -4,10 +4,16 @@ import Loader from "../Loader/Loader";
 import { useParams } from "react-router-dom";
 import { GrLanguage } from "react-icons/gr";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const ViewBookDetail = () => {
   const { id } = useParams();
   const [Data, setData] = useState();
+  const isloggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const role = useSelector((state) => state.auth.role);
+  console.log(isloggedIn);
+  console.log(role);
+
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
@@ -20,16 +26,26 @@ const ViewBookDetail = () => {
   return (
     <>
       {Data && (
-        <div className=" px-4 md:px-12 py-8 bg-zinc-900 flex flex-col md:flex-row gap-8">
-          <div className="bg-zinc-800 rounded p-4 h-[70vh] lg:h-[80vh] w-full lg:w-3/6 flex items-center justify-center gap-8">
-            <img src={Data.url} className="h-[50vh] lg:h-[70vh]" />
-            <div className="flex md:flex-col">
-              <button className="bg-white rounded-full text-2xl p-2  ">
-                <FaHeart />
-              </button>
-              <button className="bg-white rounded-full text-2xl p-2  mt-4">
-                <FaShoppingCart />
-              </button>
+        <div className=" px-4 md:px-12 py-8 bg-zinc-900 flex flex-col lg:flex-row gap-8">
+          <div className=" rounded  w-full lg:w-3/6 ">
+            <div className="flex flex-col lg:flex-row justify-around bg-zinc-800 p-12 rounded">
+              {" "}
+              <img
+                src={Data.url}
+                className="h-[50vh] md:h-[60vh] lg:h-[70vh] rounded"
+              />
+              {isloggedIn === true && role === "user" && (
+                <div className="flex  flex-row lg:flex-col items-center justify-between lg:justify-start mt-4 lg:mt-0">
+                  <button className="bg-white rounded lg:rounded-full text-3xl p-2 text-red-500 ">
+                    <FaHeart />{" "}
+                    <span className="ms-4 block lg:hidden">Add to cart</span>
+                  </button>
+                  <button className="bg-white rounded lg:rounded-full text-3xl p-2 mt- lg:mt-8 text-blue-500 flexitems-center justify-center ">
+                    <FaShoppingCart />{" "}
+                    <span className="ms-4 block lg:hidden">Add to cart</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
           <div className="p-4 w-full lg:w-3/6">
