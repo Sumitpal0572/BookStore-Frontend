@@ -74,7 +74,7 @@ const Cart = () => {
             </h1>
             <img
               src="https://www.nicepng.com/png/detail/322-3224210_your-cart-is-currently-empty-empty-shopping-cart.png"
-              alt="/empty cart"
+              alt="empty cart"
               className="lg:h-[50vh]"
             />
           </div>
@@ -83,7 +83,6 @@ const Cart = () => {
       {Cart && Cart.length > 0 && (
         <>
           <h1 className="text-5xl font-semibold text-zinc-500 mb-8">
-            {" "}
             Your Cart
           </h1>
           {Cart.map((items, i) => (
@@ -127,12 +126,12 @@ const Cart = () => {
         </>
       )}
       {Cart && Cart.length > 0 && (
-        <div className="mt-4 w-full flex items-center justify-end">
+        <div className="mt-4 w-auto flex items-center justify-end">
           <div className="p-4 bg-zinc-800 rounded ">
             <h1 className="text-3xl text-zinc-200 font-semibold">
               Total Amount
             </h1>
-            <div className="mt-3 flex itmes-center justify-between text-xl text-zinc-200">
+            <div className="mt-3 flex items-center justify-between text-xl text-zinc-200">
               <h2>{Cart.length} books </h2> <h2>rupees {Total}</h2>
             </div>
             <div className="w-[100%] mt-3">
