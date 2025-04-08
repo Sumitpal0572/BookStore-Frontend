@@ -11,7 +11,7 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    const fecth = async () => {
+    const fetch = async () => {
       const response = await axios.get(
         "http://localhost:2000/api/v1/get-user-cart",
         {
@@ -20,8 +20,16 @@ const Cart = () => {
       );
       setCart(response.data.data);
     };
-    fecth();
-  }, []);
+    fetch();
+  }, [Cart]);
+  const deleteItem = async (bookid) => {
+    const response = await axios.put(
+      `http://localhost:2000/api/v1/remove-from-cart/${bookid}`,
+      {},
+      { headers }
+    );
+    alert(response.data.message);
+  };
 
   return (
     <div className="bg-zinc-900 px-12 h-screen py-8">
@@ -42,7 +50,10 @@ const Cart = () => {
       )}
       {Cart && Cart.length > 0 && (
         <>
-          <h1 className="text-5xl font-semibold text-zinc mb-8"> Your Cart</h1>
+          <h1 className="text-5xl font-semibold text-zinc-500 mb-8">
+            {" "}
+            Your Cart
+          </h1>
           {Cart.map((items, i) => (
             <div
               className="w-full my-4 rounded flex flex-col md:flex-row p-4 bg-zinc-800 justify-between items-center"
