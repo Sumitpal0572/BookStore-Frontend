@@ -21,9 +21,14 @@ const Favourites = () => {
 
   return (
     <>
-      {FavouritesBooks.length === 0 && (
-        <div className="text=5xl font-semibold text-zinc-500 flex items-center justify-center w-full">
+      {FavouritesBooks && FavouritesBooks.length === 0 && (
+        <div className="text=5xl h-[100%] font-semibold text-zinc-500 flex items-center flex-col   justify-center w-full">
           No Favourites Books Available
+          <img
+            src="https://img.freepik.com/free-vector/premium-quality-banner-design-vector_53876-64085.jpg?ga=GA1.1.1811378810.1716549643&semt=ais_hybrid&w=740"
+            alt="/star image"
+            className="h-[20vh] my-8"
+          />
         </div>
       )}
 
