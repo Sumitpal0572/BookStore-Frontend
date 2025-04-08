@@ -8,6 +8,10 @@ const Settings = () => {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
   };
+  const change = (e) => {
+    const { name, value } = e.target;
+    setValue({ ...Value, [name]: value });
+  };
 
   useEffect(() => {
     const fetch = async () => {
@@ -46,10 +50,16 @@ const Settings = () => {
               placeholder="Address"
               name="address"
               value={Value.address}
+              onChange={change}
             ></textarea>
           </div>
           <div className="mt-4 flex justify-end">
-             <button className="bg-yellow-500 text-zinc-900 font-semibold px-3 py-2 rounded hover:bg-yellow-400">Update</button>
+            <button
+              className="bg-yellow-500 text-zinc-900 font-semibold px-3 py-2 rounded hover:bg-yellow-400 transition-all duration-300"
+              onClick={submitAddress}
+            >
+              Update
+            </button>
           </div>
         </div>
       )}
