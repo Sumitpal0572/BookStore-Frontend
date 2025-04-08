@@ -26,6 +26,15 @@ const Settings = () => {
     };
     fetch();
   }, []);
+  const submitAddress = async () => {
+    const response = await axios.put(
+      "http://localhost:2000/api/v1/update-address",
+      Value,
+      { headers }
+    );
+    alert(response.data.message);
+  };
+
   return (
     <>
       {!ProfileData && <Loader />}
