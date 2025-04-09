@@ -17,6 +17,7 @@ import UserOrderHistory from "./components/Profile/UserOrderHistory";
 import Settings from "./components/Profile/Settings";
 import Allorders from "./pages/Allorders";
 import AddBook from "./components/Profile/AddBook";
+import UpdateBook from "./pages/UpdateBook";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -54,6 +55,8 @@ const App = () => {
         </Route>
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/updateBook/:id" element={<UpdateBook />} />
+
         <Route path="view-book-details/:id" element={<ViewBookDetail />} />
       </Routes>
       <Footer />

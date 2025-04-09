@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../Loader/Loader";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { GrLanguage } from "react-icons/gr";
 import { FaHeart, FaShoppingCart, FaEdit } from "react-icons/fa";
 import { useSelector } from "react-redux";
@@ -89,10 +89,13 @@ const ViewBookDetail = () => {
               {/* for admin */}
               {isloggedIn === true && role === "admin" && (
                 <div className="flex  flex-col md:flex-row lg:flex-col items-center justify-between lg:justify-start mt-4 lg:mt-0">
-                  <button className="bg-white rounded lg:rounded-full text-3xl p-2 text-red-500 flex  items-center justify-center  ">
+                  <Link
+                    to={`/updateBook/${id}`}
+                    className="bg-white rounded lg:rounded-full text-3xl p-2 text-red-500 flex  items-center justify-center  "
+                  >
                     <FaEdit />{" "}
                     <span className="ms-4 block lg:hidden">Edit</span>
-                  </button>
+                  </Link>
                   <button
                     className="text-red-500 rounded mt-8 md:mt-0 lg:rounded-full text-3xl p-2  lg:mt-8 bg:white flexitems-center justify-center "
                     onClick={deleteBook}
